@@ -48,16 +48,17 @@ function createReport(report, options) {
     }
   });
 
-  if (options.silent !== true) {
-    console.log('TOTAL: ' + keys.length);
-  }
 
   res.unused = unused;
-
   var file = new File({
     path: 'report.js',
     contents: new Buffer(JSON.stringify(res, null, 2))
   });
+
+  if (options.silent !== true) {
+    console.log(res);
+    console.log('TOTAL: ' + keys.length);
+  }
 
   file.report = res;
   return file;
