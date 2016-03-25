@@ -1,6 +1,5 @@
 'use strict';
 
-var path = require('path');
 var through = require('through2');
 var File = require('vinyl');
 
