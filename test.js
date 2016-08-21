@@ -74,7 +74,6 @@ describe('vars()', function() {
       assert.equal(buffer[0].report.baz, 1);
       assert.equal(buffer[0].report.bbb, 0);
       assert.equal(buffer[0].report.aaa, 0);
-      console.log(buffer[0].report)
       assert.deepEqual(buffer[0].report.unused, ['bbb', 'aaa']);
       cb();
     });
