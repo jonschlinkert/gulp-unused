@@ -1,7 +1,7 @@
 {
   "name": "gulp-unused",
   "description": "Opinionated gulp plugin that takes an array of method names and creates a report with many times each is used. Don't expect miracles, this is very naive.",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "homepage": "https://github.com/jonschlinkert/gulp-unused",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/gulp-unused",
