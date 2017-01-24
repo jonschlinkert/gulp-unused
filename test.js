@@ -63,18 +63,24 @@ describe('vars()', function() {
       contents: fs.readFileSync(cwd('main.js'))
     }));
 
+    stream.write(new File({
+      base: cwd(),
+      path: cwd('utils.js'),
+      contents: fs.readFileSync(cwd('utils.js'))
+    }));
+
     stream.on('data', function(file) {
       buffer.push(file);
     });
 
     stream.on('end', function() {
-      assert.equal(buffer[0].report.foo, 3);
-      assert.equal(buffer[0].report.bar, 2);
+      assert.equal(buffer[0].report.foo, 4);
+      assert.equal(buffer[0].report.bar, 3);
       assert.equal(buffer[0].report.ccc, 1);
-      assert.equal(buffer[0].report.baz, 1);
+      assert.equal(buffer[0].report.baz, 1)
       assert.equal(buffer[0].report.bbb, 0);
-      assert.equal(buffer[0].report.aaa, 0);
-      assert.deepEqual(buffer[0].report.unused, ['bbb', 'aaa']);
+      assert.equal(buffer[0].report.aaa, 1);
+      assert.deepEqual(buffer[0].report.unused, ['bbb']);
       cb();
     });
     stream.end();

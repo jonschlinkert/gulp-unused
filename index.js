@@ -56,7 +56,10 @@ function getKeys(options, cache) {
 }
 
 function matchUtils(str, key, cache) {
-  var re = cache[key] || (cache[key] = new RegExp(`^${key}\\.(\\w+)`, 'gm'));
+  var re = key;
+  if (typeof re === 'string') {
+    re = cache[key] || (cache[key] = new RegExp(`^${key}\\.(\\w+)`, 'gm'));
+  }
   var matches = str.match(re) || [];
   return matches.map(function(name) {
     return name.replace(`${key}.`, '');
@@ -89,11 +92,13 @@ function createReport(report, keys, options) {
   }
 
   reportKeys.sort(function(a, b) {
-    return report[a] > report[b] ? -1 : 1;
+    if (report[a] > report[b]) return -1;
+    if (report[a] < report[b]) return 1;
+    return 0;
   });
 
   reportKeys.forEach(function(key) {
-    var val = report[key];
+    var val = report[key] - 1;
     res[key] = val;
     if (val === 0) {
       unused.push(key);
