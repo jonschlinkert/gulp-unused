@@ -24,14 +24,14 @@
     "extend-shallow": "^2.0.1",
     "log-utils": "^0.2.1",
     "longest": "^1.0.1",
-    "matched": "^0.4.3",
-    "repeat-string": "^1.5.4",
-    "through2": "^2.0.1",
-    "vinyl": "^1.1.1"
+    "matched": "^0.4.4",
+    "repeat-string": "^1.6.1",
+    "through2": "^2.0.3",
+    "vinyl": "^2.0.1"
   },
   "devDependencies": {
-    "gulp-format-md": "^0.1.7",
-    "mocha": "^2.4.5"
+    "gulp-format-md": "^0.1.11",
+    "mocha": "^3.2.0"
   },
   "keywords": [
     "gulp",
